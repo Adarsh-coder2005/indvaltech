@@ -23,7 +23,7 @@
         <a href="#"><i class="fa-solid fa-business-time fa-2x"></i><span>Timesheet</span></a>
       </div>
     </div>
-    <div>
+    {% comment %} <div>
       
       {% if photo %}
       {{ photo|safe }}
@@ -46,5 +46,10 @@
 <p>No graph was provided.</p>
 {% endif %}
     </div>
-  </div>
+  </div> {% endcomment %}
+  <div class="chart" url-endpoint="{% url 'chart' %}" style="width: 510px; height: 240px">
+    <h1>Chart</h1>
+    <canvas id="barChart"></canvas>
+    <canvas id="lineChart"></canvas>
+</div>
 {% endblock %}

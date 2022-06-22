@@ -1,4 +1,4 @@
-from re import template
+from django.http import JsonResponse
 from django.conf import settings
 from django.shortcuts import render,redirect
 from django.contrib import messages
@@ -282,16 +282,26 @@ def search(request):
     return render(request,'search.html')
 
 def icons(request, name):
-    l1 = testtable.objects.values()
-    d1 = []
-    d2 = []
-    for i in l1:
-        d1.append(i["d1"])
-        d2.append(i["d2"])
-    fig =px.bar(x=d1,y=d2)
-    photo = plotly.io.to_html(fig,config= {'displayModeBar': False})
-    fig2 = px.line(x=d1, y=d2)
-    photo1 = plotly.io.to_html(fig2,config= {'displayModeBar': False})
-    print("plotting done")
-    ppplot = plotly.offline.plot(fig2, include_plotlyjs=False, output_type='div')
-    return render(request, 'icons.html', {'name': name,"photo":photo,"photo1":photo1,"ppplot":ppplot})
+    # l1 = testtable.objects.values()
+    # d1 = []
+    # d2 = []
+    # for i in l1:
+    #     d1.append(i["d1"])
+    #     d2.append(i["d2"])
+    # fig =px.bar(x=d1,y=d2)
+    # photo = plotly.io.to_html(fig,config= {'displayModeBar': False})
+    # fig2 = px.line(x=d1, y=d2)
+    # photo1 = plotly.io.to_html(fig2,config= {'displayModeBar': False})
+    # print("plotting done")
+    # ppplot = plotly.offline.plot(fig2, include_plotlyjs=False, output_type='div')
+    return render(request, 'icons.html', {'name': name})
+
+
+def get_chart(request):
+    labels = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
+    items = [10, 20, 8, 28, 40, 4]
+    data = {
+        "labels": labels,
+        "defaultData": items
+    }
+    return JsonResponse(data)

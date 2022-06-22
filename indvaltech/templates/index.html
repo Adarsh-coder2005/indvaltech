@@ -86,5 +86,52 @@
 
   <script src="https://kit.fontawesome.com/9e1f75d3aa.js" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/9e1f75d3aa.js" crossorigin="anonymous"></script>
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% comment %} <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> {% endcomment %}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script>
+  var labels = [];
+  var defaultData = [];
+  $.ajax({
+      method: "GET",
+      url: "{% url 'chart' %}",
+      success: function(data) {
+          labels = data.labels
+          defaultData = data.defaultData
+          setbarChart()
+          setlineChart()
+      },
+      error: function(err) {
+          console.log(err)
+      }
+  })
+
+  function setbarChart() {
+      const ctx = document.getElementById('barChart');
+         const myChart = new Chart(ctx, {
+             type: 'bar',
+             data: {
+                 labels: labels,
+                 datasets: [{
+                     label: 'demo of bar',
+                     data: defaultData,
+                 }]
+              }
+          })
+  }
+
+  function setlineChart() {
+      const ctx = document.getElementById('lineChart');
+         const myChart = new Chart(ctx, {
+             type: 'line',
+             data: {
+                 labels: labels,
+                 datasets: [{
+                     label: 'demo of line',
+                     data: defaultData,
+                 }]
+              }
+          })
+  }
+</script>
 </html
