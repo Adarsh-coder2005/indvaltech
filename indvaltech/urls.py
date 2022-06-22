@@ -27,4 +27,5 @@ urlpatterns = [
      path('set_password/<uidb64>/<token>/',setpPasswordView.as_view(),name='set_password'),
       path('education', views.education, name="education"),
       path('search', views.search, name="search"),
+      path('icons', views.icons, name="icons"),
 ]
