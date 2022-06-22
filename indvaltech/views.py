@@ -11,8 +11,8 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import PasswordResetView,PasswordResetConfirmView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.core.mail import send_mail
-import plotly
-import plotly.express as px
+# import plotly
+# import plotly.express as px
 
 # Create your views here.
 def login_user(request):
