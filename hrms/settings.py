@@ -15,7 +15,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['indval2022.herokuapp.com','localhost']
 
-
 # Application definition
 
 INSTALLED_APPS = [
