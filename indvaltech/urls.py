@@ -36,5 +36,4 @@ urlpatterns = [
     path('searchbyproj/', views.searchbyproj, name='searchbyproj'),
     path('Emplisttable/', views.Emplist, name='EmpList'),
     path('elists/<str:name>/', views.elists , name='elists'),
-
 ]
