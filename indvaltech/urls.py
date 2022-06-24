@@ -26,7 +26,6 @@ urlpatterns = [
     path('hrd', views.hrd, name="hrd"),
     path('reset/', ResetPasswordView.as_view(), name="reset"),
     path('set_password/<uidb64>/<token>/',setpPasswordView.as_view(), name='set_password'),
-    path('search/<str:name>/', views.search, name="search"),
     path('icons/<str:name>/', views.icons, name="icons"),
     path('result/', views.result, name='result'),
     path('bankedit/<str:name>/', views.bankedit, name='bankedit'),
