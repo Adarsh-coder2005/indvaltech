@@ -345,7 +345,8 @@ def search(request, name):
 
 
 def icons(request, name):
-    return render(request, 'icons.html', {'name': name})
+    value = "Indval tech"
+    return render(request, 'icons.html', {'name': name,"value":value})
 
 def result(request):
     if request.method == 'POST':
