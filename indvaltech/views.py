@@ -234,7 +234,7 @@ def history(request, name):
         tools = request.POST['software']
         last_salary = request.POST['lsalary']
         reason_of_leaving = request.POST['reason']
-        recepient = query.Company_email
+        recepient = HRD_table.objects.get(Name=name).Company_email
 
         employeeHistoryForm = History(EID=r, organization=org, last_salary=last_salary, tools=tools,
                                       designation=designation, work=work, reason_of_leaving=reason_of_leaving)
