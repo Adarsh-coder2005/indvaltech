@@ -1,63 +1,75 @@
 {% extends 'index.html' %}
 
 {% block title %}
-    <title>Bank Details</title>
+    <title>Personal Details</title>
 {% endblock title %}
 
 {% block content %}
-
     <section id="empdeets">
-        <form class="signup-form" method="post" action="{% url 'bank' name %}" enctype="multipart/form-data"id="bank">
-            {% csrf_token %}
+        <form class="signup-form" method="post" action="{% url 'register' name %}" enctype="multipart/form-data"
+            id="personal">
+            <!-- {% csrf_token %} -->
             <div class="form-header">
-                <h1>Bank Details</h1>
+                <h1>Edit Bank Details</h1>
             </div>
             <div class="form-body">
+
                 <div class="row">
                     <div class="input-group">
-                        <label>Account No.</label>
-                        <input type="text" name="acNo">
+                        <label for="username">Account Number</label>
+                        <input type="text" id="username" name="username" required="required" />
                     </div>
-                    <div class="input-group">
-                        <label>Bank Name</label>
-                        <input type="text" name="bankname">
-                    </div>
+
                 </div>
 
                 <div class="row">
                     <div class="input-group">
-                        <label>Branch</label>
-                        <input type="text" name="branchname">
+                        <label for="password">IFSC Code</label>
+                        <input type="text" id="password" name="password" required="required" />
                     </div>
-                    <div class="input-group">
-                        <label>IFSC</label>
-                        <input type="text" name="ifsc">
-                    </div>
+
                 </div>
 
                 <div class="row">
                     <div class="input-group">
-                        <label>Swift</label>
-                        <input type="text" name="sCode">
+                        <label for="password">SWIFT Code</label>
+                        <input type="text" id="password" name="password" required="required" />
                     </div>
+
+                </div>
+
+
+              <div class="row">
                     <div class="input-group">
-                        <label>IBAN</label>
-                        <input type="number" name="iban">
+                        <label for="password">IBAN</label>
+                        <input type="text" id="password" name="password" required="required" />
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                    <label for="password">Bank Name</label>
+                    <input type="text" id="password" name="password" required="required" />
                     </div>
                 </div>
-            </div>
+
+
+
+
             <div class="form-footer">
-                <div id="save"><button id="save" class="btn">Save as Draft</button></div>
-                <div id="next"><button class="btn">Next</button></div>
+
+                <div id="next"><button class="btn" type="Submit">Submit</button></div>
+
             </div>
         </form>
     </section>
+
     <script>
-        const formId = "bank"; // ID of the form
+        const formId = "personal"; // ID of the form
         const url = location.href; //  href for the page
         const formIdentifier = `${url} ${formId}`; // Identifier used to identify the form
         const saveButton = document.querySelector("#save"); // select save button
-        //const alertBox = document.querySelector(".form-header"); // select alert display div
+        const alertBox = document.querySelector(".form-header"); // select alert display div
         let form = document.querySelector(`#${formId}`); // select form
         let formElements = form.elements; // get the elements in the form
 
@@ -75,8 +87,17 @@
             event.preventDefault();
             data = getFormData();
             localStorage.setItem(formIdentifier, JSON.stringify(data[formIdentifier]));
+            const message = "Form draft has been saved!";
+            displayAlert(message);
         };
 
+        const displayAlert = message => {
+            alertBox.innerText = message;
+            alertBox.style.display = "block";
+            setTimeout(function () {
+                alertBox.style.display = "none";
+            }, 1000);
+        };
 
         const populateForm = () => {
             if (localStorage.key(formIdentifier)) {
@@ -93,4 +114,4 @@
 
         document.onload = populateForm(); // populate the form when the document is loaded
     </script>
-    {% endblock content %}
+{% endblock content %}

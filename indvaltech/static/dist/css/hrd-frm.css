@@ -7,10 +7,13 @@
 }
 
 html, body {
-    height:100%;  
+  height:100%; 
+  margin-left: 20%;
+  width: 90%;
+
 }
 
-#ProjectAdd {
+#empdeets {
     position: relative;
     height:100%;
     background:#ffffff; 
@@ -149,48 +152,12 @@ textarea {
   resize: none;
   height:70px;
 }
+div{
+  width: 85%;
+}
 
-
-        .taskIn {
-            margin: 20px 0;
-        }
-
-        .taskIn input,
-        button {
-            padding: 5px;
-        }
-
-        .taskTable {
-            width: 100%;
-            margin-bottom: 20px;
-            border-collapse: collapse;
-        }
-
-        .taskTable,
-        .taskTh,
-        .taskTd {
-            border: 1px solid #cdcdcd;
-        }
-
-        .taskTable .eudTh,
-        .taskTable .taskTd {
-            padding: 10px;
-            text-align: left;
-        }
-
-        .task-in-field {
-            border: 1px solid black;
-            margin: 2px;
-        }
-        .taskContainer{
-            border: 1px solid black;
-            padding: 10px;
-            margin: 10px;
-            box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-            margin-left: auto;
-    margin-right: auto;
-        }
-    #butt
-    {
-      display: inline;
-    }
+.beyutifool jowell  {
+  align-content: center;
+  margin-left: 90%;
+  float: right;
+}

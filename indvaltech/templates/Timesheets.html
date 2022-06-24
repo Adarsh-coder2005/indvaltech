@@ -48,6 +48,10 @@
     ></script>
     <script src="script.js"></script>
 
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     
     </head>
     <body>
@@ -140,6 +144,7 @@
                             <th>Project Name</th>
                             <th>Activity Name</th>
                             <th>MON</th>
+                            
                             <th>TUE</th>
                             <th>WED</th>
                             <th>THU</th>
@@ -165,6 +170,17 @@
                             <td id="sat"><input class="in-out" type="text" placeholder="HH:MM"></td>
                             <td id="com"><input type="text" size="20"></td>
                             <td id="tot"><input class="in-out" type="text" placeholder="HH:MM"></td>
+                        </tr>
+                        <tr class="timeesheet-date">
+                          <td><input class="in-out" style="border:none;" disabled></td>
+                          <td><input class="in-out" style="border:none;" disabled></td>
+                          <td><input class="in-out" style="border:none;" disabled></td>
+                          <td><input type = "text" class = "datepicker-13 in-out" placeholder="Date"></td>
+                          <td><input type = "text" class = "datepicker-13 in-out" placeholder="Date" class="in-out"></td>
+                          <td><input type = "text" class = "datepicker-13 in-out" placeholder="Date" class="in-out"></td>
+                          <td><input type = "text" class = "datepicker-13 in-out" placeholder="Date" class="in-out"></td>
+                          <td><input type = "text" class = "datepicker-13 in-out" placeholder="Date" class="in-out"></td>
+                          <td><input type = "text" class = "datepicker-13 in-out" placeholder="Date" class="in-out"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -221,5 +237,9 @@
                     }
                 }
         }
+
+        $(function() {
+            $( ".datepicker-13" ).datepicker();
+         });
         </script>
 </html>

@@ -1,64 +1,68 @@
 {%load static%}
 <!DOCTYPE html>
-
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
     <link rel="stylesheet" href="{%static 'dist/css/AddProject.css'%}">
-    <title>Project Details Page</title>
 </head>
 
 <body>
-
-
-    <!-- Form-->
-    <div class="form">
-        <div class="form-toggle"></div>
-        <div class="form-panel one">
+    <section id="ProjectAdd">
+        <form class="signup-form">
             <div class="form-header">
                 <h1>Project Details</h1>
             </div>
-            <div class="form-content">
-                <form>
-                    <div class="form-group">
-                        <div id="head"  class="name" style="padding-top: 10px;">Project ID</div>
-                        <div class="value">
-                          <div class="input-group">
-                            <input
-                              class="input--style-5"
-                              type="text"
-                              name="pid"
-                              placeholder="Project ID"
-                            />
-                          </div>
-                        </div>
+            <div class="form-body">
+                <div class="row">
+                    <div class="input-group">
+                        <label>Project ID </label>
+                        <input type="text" name="pid">
                     </div>
-                    <div class="form-group">
-                        <div id="head"  class="name" style="padding-top: 10px;">Project Name</div>
-                        <div class="value">
-                          <div class="input-group">
-                            <input
-                              class="input--style-5"
-                              type="text"
-                              name="pname"
-                              placeholder="Project Name"
-                            />
-                          </div>
-                        </div>
+                    <div class="input-group">
+                        <label>Project Name</label>
+                        <input type="text" name="pname">
                     </div>
-                   
-                    <div class="form-group">
-                        <div id="head" class="name" style="padding-top: 10px;">Department</div>
-                        <div class="value">
-                          <div class="input-group">
-                            <div class="rs-select2 js-select-simple select--no-search">
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>TASK DETAILS</label>
+                        <input type="text" id="tname" placeholder="Task Name" class="task-in-field">
+                        <input type="text" id="tid" placeholder="Task ID" class="task-in-field">
+                        <input type="text" id="tdesc" placeholder="Task Description" class="task-in-field">
+                        <button  id="butt" type="button" class="btn btn--radius-2 btn--red delete-row btn-primary">Add Task</button>
+                       
+                       
+                        <br><br>
+
+                        <table class="taskTable">
+                            <thead>
+                                <tr class="taskTh">
+                                    <th>Select</th>
+                                    <th>Task Name</th>
+                                    <th>Task ID</th>
+                                    <th>Task Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <button  id="butt" type="button" class="btn btn--radius-2 btn--red delete-row btn-primary">Delete Task</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>DEPARTMENT</label>
+                        <div class="rs-select2 js-select-simple select--no-search">
                               <select
                                 id="subject"
                                 name="subject"
-                                style="width: 210px; height: 40px"
+                    
                               >
                                 <option disabled="disabled" selected="selected">
                                   Choose option
@@ -69,48 +73,16 @@
                               </select>
                               <div class="select-dropdown"></div>
                             </div>
-                          </div>
-                        </div>
                     </div>
-
-                    <div class="form-group">
-                        <div id="head" class="name" style="padding-top: 10px;">Start Date of Project</div>
+                   
+                    <div class="input-group">
+                        <label>LOCATION</label>
                         <div class="value">
-                          <div class="input-group">
-                            <input
-                              class="input--style-5"
-                              type="text"
-                              name="sop"
-                              placeholder="yyyy-mm-dd"
-                            />
-                          </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div id="head" class="name" style="padding-top: 10px;">End Date of Project</div>
-                        <div class="value">
-                          <div class="input-group">
-                            <input
-                              class="input--style-5"
-                              type="text"
-                              name="eop"
-                              placeholder="yyyy-mm-dd"
-                            />
-                          </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="form-group">
-                        <div id="head" class="name" style="padding-top: 10px;">Location</div>
-                        <div class="value">
-                          <div class="input-group">
+                         
                             <div class="rs-select2 js-select-simple select--no-search">
                               <select
                                 name="subject2"
-                                style="width: 210px; height: 40px"
+                                
                               >
                                 <option disabled="disabled" selected="selected">
                                   Choose option
@@ -121,67 +93,96 @@
                               </select>
                               <div class="select-dropdown"></div>
                             </div>
-                          </div>
                         </div>
                     </div>
+                </div>
 
+                <div class="row">
+                    <div class="input-group">
+                    <label>Start Date of Project</label>
+                        <input
+                              class="input--style-5"
+                              type="date"
+                              name="sop"
+                              placeholder="yyyy-mm-dd"
+                            />
+                    </div>
+                    
+                    <div class="input-group">
+                    <label>End Date of Project</label>
+                        <input
+                              class="input--style-5"
+                              type="date"
+                              name="eop"
+                              placeholder="yyyy-mm-dd"
+                            />
+                    </div>
 
+                </div>
 
-                    <div class="form-group">
-                        <div id="head" class="name" style="padding-top: 5px;">Project Team</div>
-                        <div class="value proTeam">
-                          <legend><b>Choose the employees: </b></legend>
-        
-                          
+                <div class="row">
+                    <div class="input-group">
+                       <label>CHOOSE PROJECT TEAM</label>
+                        <div class="value proTeam"> 
                           <select name="employees" id="employees" required>
                             <option value="">---Select Employees---</option>
                             {% for all_emp in all_emp %} 
                               <option value="{{ all_emp.EID }}">{{ all_emp }}</option>
                             {% endfor %}
                           </select>
-                         
                         </div>
                         
-                    <button id="teambutts" type="button" style="margin-right: 20%;">Add</button>
-                    </div>
-                   
-                   
-                
-                <div class="form-group">
-                    <div style="margin-left: 305;" id="head" class="name" style="padding-top: 10px;">Project Description</div>
-                    <div class="value">
-                      <div class="input-group">
-                        <textarea
-                          class="input--style-5"
-                          type="text"
-                          name="remarks"
-                          rows="2"
-                          cols="30"
-                        >
-                        </textarea>
-                      </div>
+                        <input type="button" class="btn btn--radius-2 btn--red add-row edu-add-btn btn-primary"
+                        value="Add Member" class="task-in-field">
                     </div>
                 </div>
-            </form>
-            
-            <div class="form-group">  
-                
-                <button class="btn btn--radius-2 btn--red" type="submit" style="width: 50%;">
-                    Save as draft
-                  </button>
-                <button class="btn btn--radius-2 btn--red" type="submit">
-                  Submit
-                </button>
-                
-              </div>
-            
-            </div>
-        </div>
-       
-    </div>
-   
 
+                <div class="row">
+                    <div class="input-group">
+                    <div class="input-group">
+                        <label>Task ID</label>
+                        <select>
+                            <option>Choose Task ID</option>
+                            <option>T101</option>
+                            <option>T102</option>
+                            <option>T103</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Employee ID</label>
+                        <select>
+                            <option>Choose Employee ID</option>
+                            <option>T101</option>
+                            <option>T102</option>
+                            <option>T103</option>
+                        </select>
+                    </div>
+                    <button  id="butt" type="button" class="btn btn--radius-2 btn--red delete-row btn-primary">Assign Task</button>
+                </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="form-footer">
+               
+                <div id="next"><button class="btn">Next</button></div>             
+            </div>
+        </form>
+    </section>
+
+    <script>
+        const changeSliderValue = (value) => {
+            document.getElementById("rangeSliderLabel").innerText = value + " K";
+        }
+    </script>
 
 </body>
 
-</html
+</html>

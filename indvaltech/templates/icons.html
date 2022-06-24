@@ -1,55 +1,56 @@
 {% extends 'index.html' %}
 
+{% block title %}
+    <title>Leader Dashboard</title>
+{% endblock title %}
+
+
 {% block content %}
+
+<div class="sci-dash">
+
+<div class="chart" url-endpoint="{% url 'chart' %}">
+  <canvas id="barChart" alt="Chart not loading"></canvas>
+  <canvas id="lineChart" alt="Chart not loading"></canvas>
+</div>
+
 <div class="content icon-content">
     <div class="container icon-container">
       <h3 class="icon-heading">Quick Launch</h3>
       <div class="icon-bar">
-        <a class="active" href="#"><i class="fas fa-hand-pointer fa-2x"></i><span>Time In/Out</span></a>
         <a href="#"><i class="fa-solid fa-copy fa-2x"></i><span>My Attendance Record</span></a>
         <a href="#"><i class="fa-solid fa-calendar-minus fa-2x"></i><span>My Leave List</span></a>
-        <a href="#"><i class="fa-solid fa-file-invoice-dollar fa-2x"></i><span>My Payslips</span></a>
-        <a href="#"><i class="fa-solid fa-calendar-check fa-2x"></i><span>Apply Leave</span></a>
-        <a href="#" class="timesheet-icon"><i class="fa-solid fa-calendar-days fa-2x"></i><span>My Timesheet</span></a>
-        <a href="#" class="team-icon"><i class="fa-solid fa-people-group fa-2x"></i><span>My Team</span></a>
+        <a href="{% url 'payslip' name %}"><i class="fa-solid fa-file-invoice-dollar fa-2x"></i><span>My Payslips</span></a>
+        <a href="#"><i class="fa-solid fa-people-group fa-2x"></i><span>My Team</span></a>
       </div>
     </div>
-    <hr>
+    <br><br>
     <div class="container icon-container">
       <h3 class="icon-heading">Pending My Approval</h3>
       <div class="icon-bar">
         <a class="active" href="#"><i class="fa-solid fa-file-circle-check fa-2x"></i><span>Leave</span></a>
-        <a href="#"><i class="fa-solid fa-user-check fa-2x"></i><span>Attendance Regularization</span></a>
+        <a href="{% url 'EmpList' %}"><i class="fa-solid fa-user-check fa-2x"></i><span>Attendance Regularization</span></a>
         <a href="#"><i class="fa-solid fa-business-time fa-2x"></i><span>Timesheet</span></a>
       </div>
     </div>
-    {% comment %} <div>
-      
-      {% if photo %}
-      {{ photo|safe }}
-{% else %}
-<p>No graph was provided.</p>
-{% endif %}
+  </div>
 
+
+<form class="wrapper" method="post" action="{% url 'result' %}" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="search_box">
+          <select class="search-drop" name="searchBy">
+          <option disabled hidden selected>SELECT</option>
+          <option value="1">Emp ID</option>
+          <option value="2">Emp Name</option>
+          <option value="3">Project</option>
+          <option value="4">Department</option>
+        </select>
+      <div class="search_field">
+        <input type="text" class="input" placeholder="Search" name="emp">
+        <i class="fas fa-search"></i>
     </div>
-    <div>
-     {% if photo1 %}
-      {{ photo1|safe }}
-{% else %}
-<p>No graph was provided.</p>
-{% endif %}
-    </div>
-    <div>
-      {% if ppplot %}
-      {{ ppplot|safe }}
-{% else %}
-<p>No graph was provided.</p>
-{% endif %}
-    </div>
-  </div> {% endcomment %}
-  <div class="chart" url-endpoint="{% url 'chart' %}" style="width: 510px; height: 240px">
-    <h1>Chart</h1>
-    <canvas id="barChart" alt="Chart not loading"></canvas>
-    <canvas id="lineChart" alt="Chart not loading"></canvas>
+  </div>
+</form>
 </div>
 {% endblock %}

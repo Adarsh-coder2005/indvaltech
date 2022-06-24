@@ -1,0 +1,55 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply Leave</title>
+    <link rel="stylesheet" href="applyLeve.css">
+    <link rel="stylesheet" href="{%static 'dist/css/base.css'%}">
+    <link rel="stylesheet" href="{%static 'dist/css/empdeets.css'%}">
+</head>
+
+<body>
+    <section id="empdeets">
+        <form class="signup-form" method="post" action="{% url 'leave' name  %}" enctype="multipart/form-data" id="personal">
+            {% csrf_token %}
+            <div class="form-header">
+                <h1>Apply Leave</h1>
+            </div>
+            <div class="form-body">
+                <!-- <div class="row"></div>
+                    <div class="input-group">
+                        <label>Employee ID</label>
+                        <input type="text" name="empID">
+                    </div> -->
+                <div class="row">
+                    <div class="input-group">
+                        <label>Leave Starting Date</label>
+                        <input type="text" name="FromDate">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label>Leave Ending Date</label>
+                        <input type="text" name="ToDate">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label>Reason For Leave</label>
+                        <input type="text" name="Reason">
+                    </div>
+                </div>
+            </div>
+            <div class="form-footer">
+                <div id="btn" type="submit"><button class="btn">Submit</button></div>             
+            </div>
+        </form>
+    </section>
+
+</body>
+
+</html>

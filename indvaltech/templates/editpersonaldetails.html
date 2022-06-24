@@ -6,13 +6,45 @@
 
 {% block content %}
     <section id="empdeets">
-        <form class="signup-form" method="post" action="{% url 'register' name %}" enctype="multipart/form-data" id="personal">
-            {% csrf_token %}
+        <form class="signup-form" method="post" action="{% url 'register' name %}" enctype="multipart/form-data"
+            id="personal">
+            <!-- {% csrf_token %} -->
             <div class="form-header">
-                <h1>Personal Details</h1>
+                <h1>Edit Personal Details</h1>
             </div>
             <div class="form-body">
+
                 <div class="row">
+                    <div class="input-group">
+                        <label for="username">Employee Name</label>
+                        <input type="text" id="username" name="username" required="required" />
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label for="password">ID</label>
+                        <input type="text" id="password" name="password" required="required" />
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label for="Deparment">Deparment</label>
+                        <select name="subject" >
+                            <option disabled="disabled" selected="selected">Choose option</option>
+                            <option>Department 1</option>
+                            <option>Department 2</option>
+                            <option>Department 3</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+              <div class="row">
                     <div class="input-group">
                         <label>Email </label>
                         <input type="email" name="email" placholder="Enter your email address">
@@ -38,18 +70,14 @@
                         <div class="input-group">
 
                             <div>
-                                <select
-                                id="gender"
-                                name="gender"
-                                style="width: 210px; height: 40px"
-                              >
-                                <option disabled="disabled" selected="selected">
-                                    Choose option
-                                  </option>
-                                        <option>Male</option>
-                                        <option>Female</option>
-                                        <option>Others</option>
-                               </select>
+                                <select id="gender" name="gender" style="width: 210px; height: 40px">
+                                    <option disabled="disabled" selected="selected">
+                                        Choose option
+                                    </option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Others</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -58,7 +86,7 @@
                     <div class="input-group">
                         <label for="birthday">DOB</label>
                         <input type="date" id="birthday" name="dob">
-                        </div>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="input-group">
@@ -128,10 +156,11 @@
                     </div>
                 </div>
 
-            </div>
+
+
             <div class="form-footer">
-                <div id="save"><button class="btn" id="save" type="Save">Save as Draft</button></div>
-                <div id="next"><button class="btn" type="Submit">Next</button></div>
+
+                <div id="next"><button class="btn" type="Submit">Submit</button></div>
 
             </div>
         </form>
@@ -142,6 +171,7 @@
         const url = location.href; //  href for the page
         const formIdentifier = `${url} ${formId}`; // Identifier used to identify the form
         const saveButton = document.querySelector("#save"); // select save button
+        const alertBox = document.querySelector(".form-header"); // select alert display div
         let form = document.querySelector(`#${formId}`); // select form
         let formElements = form.elements; // get the elements in the form
 
@@ -159,6 +189,16 @@
             event.preventDefault();
             data = getFormData();
             localStorage.setItem(formIdentifier, JSON.stringify(data[formIdentifier]));
+            const message = "Form draft has been saved!";
+            displayAlert(message);
+        };
+
+        const displayAlert = message => {
+            alertBox.innerText = message;
+            alertBox.style.display = "block";
+            setTimeout(function () {
+                alertBox.style.display = "none";
+            }, 1000);
         };
 
         const populateForm = () => {
@@ -169,6 +209,8 @@
                         element.value = savedData[element.name];
                     }
                 }
+                const message = "Form has been refilled with saved data!";
+                displayAlert(message);
             }
         };
 

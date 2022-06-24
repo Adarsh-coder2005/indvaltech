@@ -35,13 +35,17 @@
         <div class="col-lg-4">
           <div class="card shadow-sm">
             <div class="card-header bg-transparent text-center">
-              <img class="profile_img" src="D:/Academics/Projects/HRMS/portal/static/assets/img/logo.png" alt="employee dp">
-              <h3>Ramesh Roy</h3>
+              {% for data in data1 %}
+                <img class="profile_img" src="{{ data.Photo.url }}" alt="employee dp">
+              {% for data in data8 %}
+              <h3>{{ data }}</h3>
+              {% endfor %}
             </div>
             <div class="card-body">
-              <p class="mb-0"><strong class="pr-1">Employee ID:</strong>321000001</p>
-              <p class="mb-0"><strong class="pr-1">Department:</strong>Marketing</p>
-              
+              {% for datas in data8 %}
+                <p class="mb-0"><strong class="pr-1">Employee ID:</strong>{{ datas.EID }}</p>
+                <p class="mb-0"><strong class="pr-1">Department:</strong>{{ datas.Department }}</p>
+              {% endfor %}
             </div>
           </div>
         </div>
@@ -54,62 +58,66 @@
                 </div>
                 <div class="card-body pt-0">
                   <table class="table">
-                   
+                    
                     <tr>
                         <th width="30%">Date of Birth:</th>
                         <td width="2%">:</td>
-                        <td>04-03-1980</td>
+                        <td>{{ data.DOB }}</td>
                       </tr>
 
                       <tr>
                         <th width="30%">Email</th>
                         <td width="2%">:</td>
-                        <td>email@mail.com</td>
+                        <td>{{ data.Email }}</td>
                       </tr>
                     
 
                     <tr>
                       <th width="30%">Gender</th>
                       <td width="2%">:</td>
-                      <td>Male</td>
+                      <td>{{ data.Gender }}</td>
                     </tr>
+                    {% endfor %}
 
+                    {% for data in data8 %}
                     <tr>
                         <th width="30%">Date of Joining	</th>
                         <td width="2%">:</td>
-                        <td>06-04-2020</td>
+                        <td>{{ data.DOJ }}</td>
                       </tr>
-
+                    {% endfor%}
+                    {% for data in data1 %}
                       <tr>
                         <th width="30%">Permanent Address</th>
                         <td width="2%">:</td>
-                        <td>Shaitan Gali, Khatra Mahal, </td>
+                        <td>{{ data.PermanentAddress }}</td>
                       </tr>
                       
                       <tr>
-                        <th width="30%">Permanent Address</th>
+                        <th width="30%">Address</th>
                         <td width="2%">:</td>
-                        <td>Shaitan Gali, Khatra Mahal, Shamshaan ke peeche</td>
+                        <td>{{ data.Address }}</td>
                       </tr>
                  
                     <tr>
                       <th width="30%">Blood Group</th>
                       <td width="2%">:</td>
-                      <td>B+</td>
+                      <td>{{ data.Blood }}</td>
                     </tr>
 
                     <tr>
                         <th width="30%">Emergency Phone</th>
                         <td width="2%">:</td>
-                        <td>1234567890</td>
+                        <td>{{ data.EmergencyPh }}</td>
                       </tr>
 
                       
                     <tr>
                         <th width="30%">Phone Number</th>
                         <td width="2%">:</td>
-                        <td>6987654321</td>
+                        <td>{{ data.Ph }}</td>
                       </tr>
+                    {% endfor %}
                   </table>
                 </div>
               </div>
@@ -121,33 +129,33 @@
                 </div>
                 <div class="card-body pt-0">
                   <table class="table table-bordered">
-                   
+                  {% for data in data1 %}
                     <tr>
                         <th width="30%">Aadhaar Number:</th>
                         <td width="2%">:</td>
-                        <td>13213767</td>
+                        <td>{{ data.aadhar }}</td>
                       </tr>
 
 
                     <tr>
                       <th width="30%">PAN Number: </th>
                       <td width="2%">:</td>
-                      <td>AKO1323H</td>
+                      <td>{{ data.Pan }}</td>
                     </tr>
 
 
                     <tr>
                       <th width="30%">Passport Number</th>
                       <td width="2%">:</td>
-                      <td>38374689</td>
+                      <td>{{ data.passport }}</td>
                     </tr>
 
                     <tr>
                         <th width="30%">NOC Number</th>
                         <td width="2%">:</td>
-                        <td>AQ4567437</td>
+                        <td>{{ data.esicNum }}</td>
                       </tr>
-                   
+                  {% endfor %}
                   </table>
                 </div>
               </div>
@@ -161,27 +169,14 @@
                 <div class="card-body pt-0">
                   <table class="table table-bordered">
                    
+                    {% for data in data2 %}
                     <tr>
-                        <th width="30%">Class 10th Percentage:</th>
+                        <th width="30%">{{ data.board}} Percentage:</th>
                         <td width="2%">:</td>
-                        <td>80%</td>
+                        <td>{{ data.percentage }}%</td>
                       </tr>
+                    {% endfor %}
 
-
-                    <tr>
-                      <th width="30%">Class 12th Percentage:</th>
-                      <td width="2%">:</td>
-                      <td>82%</td>
-                    </tr>
-
-
-                    <tr>
-                      <th width="30%">Bachelor's Percentage</th>
-                      <td width="2%">:</td>
-                      <td>84%</td>
-                    </tr>
-
-                   
                   </table>
                 </div>
               </div>
@@ -193,44 +188,45 @@
                 </div>
                 <div class="card-body pt-0">
                   <table class="table table-bordered">
-                   
+                    {% for data in data4 %}
                     <tr>
                         <th width="30%">Acount Number</th>
                         <td width="2%">:</td>
-                        <td>712467823461291</td>
+                        <td>{{ data.account }}</td>
                       </tr>
 
 
                     <tr>
                       <th width="30%">IFSC Code</th>
                       <td width="2%">:</td>
-                      <td>247891237</td>
+                      <td>{{ data.ifsc }}</td>
                     </tr>
 
 
                     <tr>
                       <th width="30%">Swift Code</th>
                       <td width="2%">:</td>
-                      <td>3789467893</td>
+                      <td>{{ data.swift }}</td>
                     </tr>
 
                     <tr>
                         <th width="30%">IBAN</th>
                         <td width="2%">:</td>
-                        <td>35824789327</td>
+                        <td>{{ data.iban }}</td>
                       </tr>
 
                       <tr>
                         <th width="30%">Bank Name</th>
                         <td width="2%">:</td>
-                        <td>South Indian Bank</td>
+                        <td>{{ data.bank_name }}</td>
                       </tr>
 
                       <tr>
                         <th width="30%">Branch Name</th>
                         <td width="2%">:</td>
-                        <td>Bidadi</td>
-                      </tr>                 
+                        <td>{{ data.branch }}</td>
+                      </tr>               
+                    {% endfor %}  
                   </table>
                 </div>
               </div>

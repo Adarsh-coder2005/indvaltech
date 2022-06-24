@@ -3,122 +3,82 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags-->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Colorlib Templates">
-    <meta name="author" content="Colorlib">
-    <meta name="keywords" content="Colorlib Templates">
-
-    <!-- Title Page-->
-    <title>Au Register Forms by Colorlib</title>
-
-    <!-- Icons font CSS-->
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
-
-    <!-- Vendor CSS-->
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
-
-    <!-- Main CSS-->
-    <link href="{%static 'dist/css/main.css' %}" rel="stylesheet" media="all">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details</title>
+    <link rel="stylesheet" href="{%static 'dist/css/AddActivity.css'%}">
 </head>
 
 <body>
-    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
-        <div class="wrapper wrapper--w790">
-            <div class="card card-5">
-                <div class="card-heading">
-                    <h2 class="title">Activity Task Page</h2>
+    <section id="ActivityAdd">
+        <form class="signup-form">
+            <div class="form-header">
+                <h1>Activity Details</h1>
+            </div>
+            <div class="form-body">
+                <div class="row">
+                    <div class="input-group">
+                        <label>Project Name </label>
+                        <select>
+                            <option>Choose Project Name</option>
+                            <option>HRMS</option>
+                            <option>MMS</option>
+                            <option>LMS</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Task ID</label>
+                        <select>
+                            <option>Choose Task ID</option>
+                            <option>T101</option>
+                            <option>T102</option>
+                            <option>T103</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <form method="POST" action="{% url 'AddActivity' %}" enctype="multipart/form-data">
-                    {% csrf_token %}
-                       
-                        <div class="form-row">
-                            <div class="name">Project ID</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="text" name="pid" placeholder="Project ID">
-                                </div>
-                            </div>
-                        </div>
 
+            
 
-
-                       
-
-                        <div class="form-row">
-                            <div class="name">Task ID</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="text" name="tid" placeholder="Task ID">
-                                </div>
-                            </div>
-                        </div>
+                <div class="row">
+                    <div class="input-group">
+                    <label>Date</label>
+                        <input
+                              class="input--style-5"
+                              type="date"
+                              name="sop"
+                              placeholder="yyyy-mm-dd"
+                            />
+                    </div>
                     
-                        <div class="form-row">
-                            <div class="name">Task Name</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="text" name="tname" placeholder="Task Name">
-                                </div>
-                            </div>
-                        </div>
+                    <div class="input-group">
+                    <label>Allocated Hours</label>
+                        <input type="text" value="100 HRS">
+                    </div>
+                </div>
 
-                        <div class="form-row">
-                            <div class="name">Available Hours</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="text" name="avhrs" placeholder="HH:MM">
-                                </div>
-                            </div>
-                        </div>
-                       
-
-                        <div class="form-row">
-                            <div class="name">Allocated Hours</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <label for="html">100 Hrs</label>
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-                        
-
-                        <div class="form-row">
-                            <div class="name">Date</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="date" name="tname" placeholder="HH:MM">
-                                </div>
-                            </div>
-                        </div>
-                       
-                        <div>
-                            <button class="btn btn--radius-2 btn--red" type="submit">Submit</button>
-                        </div>
-                    </form>
+                <div class="row">
+                    <div class="input-group">
+                        <label for="">Available Hours</label>
+                        <input type="text" name="availhrs" placeholder="Available Hours">
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Jquery JS-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <!-- Vendor JS-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <script src="vendor/datepicker/moment.min.js"></script>
-    <script src="vendor/datepicker/daterangepicker.js"></script>
+           
 
-    <!-- Main JS-->
-    <script src="{%static 'dist/js/global.js' %}"></script>
+            <div class="form-footer">
+                <div id="next"><button class="btn">Next</button></div>             
+            </div>
+        </form>
+    </section>
 
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+    <script>
+        const changeSliderValue = (value) => {
+            document.getElementById("rangeSliderLabel").innerText = value + " K";
+        }
+    </script>
+
+</body>
 
 </html>
-<!-- end document-->

@@ -80,7 +80,7 @@ class HRDAdmin(admin.ModelAdmin):
 
 
 # Register Models
-#admin.site.register(Project)
+admin.site.register(Project)
 #admin.site.register(Team)
 #admin.site.register(Timesheet)
 #admin.site.register(Attendance)
@@ -90,7 +90,7 @@ admin.site.register(Family, FamilyAdmin)
 admin.site.register(Bank, BankAdmin)
 admin.site.register(History, HistoryAdmin)
 admin.site.register(HRD_table, HRDAdmin)
-admin.site.register(testtable)
+
 
 
 #Removing Group

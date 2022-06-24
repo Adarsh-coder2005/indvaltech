@@ -48,74 +48,53 @@
                     </div>
                 </div>
                 <button class="btn" type="submit">Add</button>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Organisation</th>
-                            <th>Designation</th>
-                            <th>Work</th>
-                            <th>Soft</th>
-                            <th>Last Salary</th>
-                            <th>Reason of leaving</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            
-                    </tbody>
-                </table>  
-            </div>
-            <div class="form-footer">
-                <div id="save"><button id="save" class="btn">Save as Draft</button></div>
-                <div id="next"></div><a href="{% url 'dashboard' name %}"><button class="btn">Submit</button></a></div>             
-            </div>
         </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Organisation</th>
+                    <th>Designation</th>
+                    <th>Work</th>
+                    <th>Soft</th>
+                    <th>Last Salary</th>
+                    <th>Reason of leaving</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                {% if datas %}
+                {% for data in datas %}
+                <tr>
+                    <td>{{data.organization}}</td>
+                    <td>{{data.designation}}</td>
+                    <td>{{data.work}}</td>
+                    <td>{{data.tools}}</td>
+                    <td>{{data.last_salary}}</td>
+                    <td>{{data.reason_of_leaving}}</td>
+                    <td>
+                        <form action="{% url 'delete_history' name data.organization %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <input type="submit" class="btn" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% endif %}
+
+            </tbody>
+        </table>
+        <div class="form-footer">
+            <div id="save"><button class="btn" id="save" type="button">Save as Draft</button></div>
+            <div id="next"></div><a href="{% url 'icons' name %}"><button class="btn" type="button">Submit</button></a>
+        </div>
+        </div>
     </section>
-
-    <script>
-        const formEl = document.querySelector("form");
-        const tbodyEl = document.querySelector("tbody");
-        const tableEl = document.querySelector("table");
-        function onAddWebsite(e) {
-          e.preventDefault();
-          const orga = document.getElementById("org").value;
-          const desiga = document.getElementById("desig").value;
-          const worka = document.getElementById("work").value;
-          const soft = document.getElementById("softy").value;
-          const lsalarya = document.getElementById("lsalary").value;
-          const rola = document.getElementById("rol").value;
-          tbodyEl.innerHTML += `
-              <tr>
-                  <td>${orga}</td>
-                  <td>${desiga}</td>
-                  <td>${worka}</td>
-                  <td>${soft}</td>
-                  <td>${lsalarya}</td>
-                  <td>${rola}</td>
-                  <td><button class="deleteBtn">Delete</button></td>
-              </tr>
-          `;
-        }
-    
-        function onDeleteRow(e) {
-          if (!e.target.classList.contains("deleteBtn")) {
-            return;
-          }
-    
-          const btn = e.target;
-          btn.closest("tr").remove();
-        }
-    
-        formEl.addEventListener("submit", onAddWebsite);
-        tableEl.addEventListener("click", onDeleteRow);
-      </script>
-
     <script>
         const formId = "history"; // ID of the form
         const url = location.href; //  href for the page
         const formIdentifier = `${url} ${formId}`; // Identifier used to identify the form
         const saveButton = document.querySelector("#save"); // select save button
-        const alertBox = document.querySelector(".form-header"); // select alert display div
+        //const alertBox = document.querySelector(".form-header"); // select alert display div
         let form = document.querySelector(`#${formId}`); // select form
         let formElements = form.elements; // get the elements in the form
 
@@ -133,17 +112,17 @@
             event.preventDefault();
             data = getFormData();
             localStorage.setItem(formIdentifier, JSON.stringify(data[formIdentifier]));
-            const message = "Form draft has been saved!";
-            displayAlert(message);
+            //const message = "Form draft has been saved!";
+            //displayAlert(message);
         };
 
-        const displayAlert = message => {
+        /*const displayAlert = message => {
             alertBox.innerText = message;
             alertBox.style.display = "block";
             setTimeout(function () {
                 alertBox.style.display = "none";
             }, 1000);
-        };
+        };*/
 
         const populateForm = () => {
             if (localStorage.key(formIdentifier)) {

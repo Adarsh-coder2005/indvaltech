@@ -1,0 +1,191 @@
+{% extends 'index.html' %}
+
+    {% block title %}
+    <title>Search aPage</title>
+    {% endblock title %}
+
+    {% block content %}
+    <div class="search-form">
+        <form name="searchByID" method="post" action="" >
+            {% csrf_token %}
+            <div class="search-form-header">
+                <p>Employee ID (searchDetails)</p>
+            </div>
+                        <div class="search-box">
+                            <input type="text" class="search-input" placeholder="Start Looking For Something!" name="emp_id">
+                            <a class="search-btn" href="#">
+                              <!-- Seach Icon -->
+                              <i class="fas fa-search"></i>
+                            </a>
+                        </div>
+        </form>
+   
+        <form name="searchByID" method="post" action="" >
+            {% csrf_token %}
+            <div class="search-form-header">
+                <p>Employee Name (searchDetails)</p>
+            </div>
+                        <div class="search-box">
+                            <input type="text" class="search-input" placeholder="Start Looking For Something!" name="ename">
+                            <a class="search-btn" href="#">
+                              <!-- Seach Icon -->
+                              <i class="fas fa-search"></i>
+                            </a>
+                        </div>
+        </form>
+
+        <form name="searchByID" method="post" action="" >
+            {% csrf_token %}
+            <div class="search-form-header">
+                <p>Employee ID (searchHistory)</p>
+            </div>
+                        <div class="search-box">
+                            <input type="text" class="search-input" placeholder="Start Looking For Something!" name="emp_history">
+                            <a class="search-btn" href="#">
+                              <!-- Seach Icon -->
+                              <i class="fas fa-search"></i>
+                            </a>
+                        </div>
+        </form>
+
+        <form name="searchByID" method="post" action="" >
+            {% csrf_token %}
+            <div class="search-form-header">
+                <p>Project Name </p>
+            </div>
+                        <div class="search-box">
+                            <input type="text" class="search-input" placeholder="Start Looking For Something!" name="project">
+                            <a class="search-btn" href="#">
+                              <!-- Seach Icon -->
+                              <i class="fas fa-search"></i>
+                            </a>
+                        </div>
+        </form>
+
+        <form name="searchByID" method="post" action="" >
+            {% csrf_token %}
+            <div class="search-form-header">
+                <p>Employee ID (searchFamilyDetails)</p>
+            </div>
+                        <div class="search-box">
+                            <input type="text" class="search-input" placeholder="Start Looking For Something!"name="emp_id_family">
+                            <a class="search-btn" href="#">
+                              <i class="fas fa-search"></i>
+                            </a>
+                        </div>
+        </form>
+
+        <form name="searchByID" method="post" action="" >
+            {% csrf_token %}
+            <div class="search-form-header">
+                <p>Employee ID (searchEducationDetails)</p>
+            </div>
+                        <div class="search-box">
+                            <input type="text" class="search-input" placeholder="Start Looking For Something!" name="emp_id_Education">
+                            <a class="search-btn" href="#">
+                              <!-- Seach Icon -->
+                              <i class="fas fa-search"></i>
+                            </a>
+                        </div>
+        </form>
+
+    </div>
+
+<style>
+    
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+.search-form{
+  position: relative;
+  display: flex;
+  justify-content: space-between ; 
+  flex-flow: row wrap;
+  margin: 20px;
+}
+
+form{
+  position: relative;
+  display: block;
+  align-items: center;
+  height: 200px;
+  width: 400px;
+  background-color: #3f3f3f;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.search-form-header {
+  padding:5px ;
+  border-radius: 10px;
+  background-color: rgb(20, 124, 176);
+}
+.search-form-header p {
+  font-size: 18px;
+  text-align:center;
+  color:rgb(255, 255, 255);
+}
+
+.search-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(20, 124, 176);
+  height: 40px;
+  border-radius: 50px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+/* input */
+.search-input {
+  outline: none;
+  border: none;
+  background: none;
+  width: 0;
+  padding: 0;
+  color: #fff;
+  float: left;
+  font-size: 16px;
+  transition: .3s;
+  line-height: 40px;
+}
+
+.search-input::placeholder {
+  color: rgb(255, 255, 255);
+}
+
+/* icon */
+.search-btn {
+  color: #fff;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  background: rgb(20, 124, 176);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.search-input:focus,
+.search-input:not(:placeholder-shown) {
+  width: 240px;
+  padding: 0 6px;
+}
+
+.search-box:hover > .search-input {
+  width: 240px;
+  padding: 0 6px;
+}
+
+.search-box:hover > .search-btn,
+.search-input:focus + .search-btn,
+.search-input:not(:placeholder-shown) + .search-btn {
+  background: #fff;
+  color: rgb(20, 124, 176);
+}
+</style>
+
+{% endblock content %}

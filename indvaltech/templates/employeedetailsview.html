@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        margin-top: 0 auto;
+    }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 90%;
+        margin-top: 2%;
+        margin-left: 5%;
+        padding: 0%;
+        font-size: 20px;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+
+    }
+
+    tr:nth-child(odd) {
+        background-color: rgb(213, 213, 213);
+    }
+
+    #table-header {
+        background-color: black;
+        color: white;
+        font-size: 20px;
+    }
+
+
+    #heading {
+        background-color: rgb(20, 124, 176);
+        margin-top: 1%;
+        margin-left: 1%;
+
+        height: 100%;
+        padding: 1%;
+        text-align: center;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+
+    }
+
+  
+
+
+    .container {
+        position: absolute;
+        width: 100%;
+    }
+
+    #search
+    {
+         font-size: 20px;
+        margin-left: 70%;
+        margin-top: 1%;
+    }
+    #search-btn{
+        font-size: 20px;
+    }
+
+
+</style>
+
+
+</head>
+<body>
+    
+    <div class="container">
+
+
+    <div id="heading">
+        <h1>Employee Database</h1>
+    </div>
+
+
+    <input type="text" placeholder="Search.." name="search" id="search">
+
+    <button type="submit" id="search-btn">Search</button>
+   
+    
+
+
+<table>
+    
+    
+        
+    
+  
+
+  <tr id="table-header">
+    <th>Employee ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Details</th>
+  </tr>
+  {% for data in data %}
+  <tr>
+    <td>{{data.EID}}</td>
+    <td>{{data.Name}}</td>
+    <td>{{data.Company_email}}</td>
+    <th><a href="{% url 'elists' data %}">Details</a></th>
+  </tr>
+  {% endfor %}
+  
+</table>
+</div>
+</body>
+</html>

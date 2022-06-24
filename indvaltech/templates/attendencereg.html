@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body
+    {
+        margin-top: 0 auto;
+    }
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  margin-top: 5%;
+  margin-left: 10%;
+  padding: 0%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  
+}
+
+tr:nth-child(odd) {
+  background-color: rgb(213, 213, 213);
+}
+
+#table-header
+{
+    background-color: black;
+    color: white;
+}
+
+
+#heading
+{
+    background-color: rgb(20, 124, 176);
+    margin-top: 1%;
+    margin-left: 1%;
+   
+    height: 100%;
+    padding: 1%;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+   
+}
+.btns
+{
+    margin-top: 2%;
+    width: 80%;
+    padding: 1%;
+    margin-left: 0%;
+}
+
+#btn1
+{
+    border: 1px solid rgb(20, 124, 176) ;
+    margin-left: 15%;
+    padding: 1%;
+  transition-duration: 0.4s;
+  background-color: white;
+  border-radius: 7px;
+  width:9%
+}
+
+#btn1:hover {
+  background-color: rgb(20, 124, 176); /* Green */
+  color: white;
+}
+
+#btn11
+{
+    border: 1px solid rgb(20, 124, 176) ;
+    margin-left: 35%;
+    padding: 1%;
+  transition-duration: 0.4s;
+    background-color: white;
+     border-radius: 7px;
+     width:9%
+}
+
+#btn11:hover {
+  background-color: rgb(20, 124, 176); /* Green */
+  color: white;
+}
+
+
+</style>
+
+</head>
+<body>
+    <div id="heading">
+        <h1>Attendence Regularization</h1>
+    </div>
+
+
+
+<table>
+  <tr id="table-header">
+    <th>Employee ID</th>
+    <th>IN Time</th>
+    <th>OUT Time</th>
+  </tr>
+  <tr>
+    <td>32424</td>
+    <td>8.00 AM</td>
+    <td>10.00 AM</td>
+  </tr>
+  <tr>
+    <td>762424</td>
+    <td>8.00 AM</td>
+    <td>10.00 AM</td>
+  </tr>
+  <tr>
+    <td>3234424</td>
+    <td>8.00 AM</td>
+    <td>10.00 AM</td>
+  </tr>
+  <tr>
+    <td>32476524</td>
+    <td>8.00 AM</td>
+    <td>11.00 AM</td>
+  </tr>
+  <tr>
+    <td>3242098344</td>
+    <td>8.00 AM</td>
+    <td>10.45 AM</td>
+  </tr>
+  <tr>
+    <td>324242346</td>
+    <td>8.00 AM</td>
+    <td>10.30 AM</td>
+  </tr>
+</table>
+<div class="btns">
+    <button id="btn1">Edit Sheet</button>
+    <button id="btn11">Save</button>
+</div>
+</body>
+</html>

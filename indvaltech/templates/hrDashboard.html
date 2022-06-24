@@ -1,0 +1,131 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% block title %}{% endblock title %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="{%static 'dist/css/base.css'%}">
+  <link rel="stylesheet" href="{%static 'dist/css/empdeets.css'%}">
+  <link rel="stylesheet" href="{%static 'dist/css/base.css'%}">
+  <link rel="stylesheet" href="{%static 'dist/css/empdeets.css'%}">
+  <link rel="stylesheet" href="{%static 'dist/css/search.css'%}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Hr Dashboard</title>
+</head>
+
+<body>
+  <div class="topnav">
+    <div class="topnav-right">
+      <a href="#notification"><button class="right-btn"><i class="fa-solid fa-bell"></i></button></a>
+      <a href="#settings"><button class="right-btn"><i class="fa-solid fa-gear"></i></button></a>
+      <a href="#user"><button class="right-btn"><i class="fa-solid fa-user"></i></button></a>
+    </div>
+
+    <div class="sidebar">
+      <input type="checkbox" id="btn" hidden>
+      <label for="btn" class="menu-btn">
+        <i class="fa-solid fa-bars"></i>
+      </label>
+      <nav id="sidebar">
+        <div id="logo"><img src="{%static 'assets/img/logo.png' %}"></div>
+        <div class="title">Indval Technologies</div>
+        <ul class="list-items">
+          <li><a href="#"></i><button class="drpdwn-btn">Actions</button></a>
+            <div class="drpdwn-con">
+              <ul style=" list-style-type: none;">
+                <li id="rocket"><a href="#"><span class="material-symbols-outlined">
+                      rocket_launch
+                    </span>Quick Launch</a></li>
+                <li><a href="#"><span class="material-symbols-outlined">
+                      pending_actions
+                    </span>Pending Approval</a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="#"><button class="drpdwn-btn">Time</button></a>
+            <div class="drpdwn-con">
+              <ul style=" list-style-type: none;">
+                <li><a href="#"><span class="material-symbols-outlined">
+                      event_upcoming
+                    </span>In & Out</a></li>
+                <li><a href="#"><span class="material-symbols-outlined">
+                      calendar_month
+                    </span>My Attendace Record</a></li>
+                <li><a href="#"><span class="material-symbols-outlined">
+                      manage_history
+                    </span>Regularize My Attendance</a></li>
+                    <li><a href="#"><span class="material-symbols-outlined">
+                      calendar_today
+                    </span>Employee Attendance Record</a></li>
+                    <li><a href="#"><span class="material-symbols-outlined">
+                      assignment
+                    </span>Employee Timesheet</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li><a href="#"><button class="drpdwn-btn">Project</button></a>
+            <div class="drpdwn-con">
+              <ul style=" list-style-type: none;">
+                <li><a href="{% url 'AddProject'%}"><span class="material-symbols-outlined">
+                      engineering
+                    </span>Add Project</a></li>
+                <li><a href="{% url 'AddActivity'%}"><span class="material-symbols-outlined">
+                      fitness_center
+                    </span>Add Activity</a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li><a href="{% url 'leave' %}"><span class="material-symbols-outlined">
+            grading
+          </span>Apply Leave</a></li>
+
+          <li><a href="#"><span class="material-symbols-outlined">
+            assignment_ind
+          </span>Employee Details</a></li>
+
+          <li><a href="#"><span class="material-symbols-outlined">
+            search
+          </span>Search Employees</a></li>
+
+          
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="content">
+    <div class="content icon-content">
+      <div class="container icon-container">
+        <h3 class="icon-heading">Quick Launch</h3>
+        <div class="icon-bar">
+          <a class="active" href="#"><i class="fas fa-hand-pointer fa-2x"></i><span>Time In/Out</span></a>
+          <a href="#"><i class="fa-solid fa-copy fa-2x"></i><span>My Attendance Record</span></a>
+          <a href="#"><i class="fa-solid fa-calendar-minus fa-2x"></i><span>My Leave List</span></a>
+          <a href="#"><i class="fa-solid fa-file-invoice-dollar fa-2x"></i><span>My Payslips</span></a>
+          <a href="#"><i class="fa-solid fa-calendar-check fa-2x"></i><span>Apply Leave</span></a>
+          <a href="#" class="timesheet-icon"><i class="fa-solid fa-calendar-days fa-2x"></i><span>My Timesheet</span></a>
+          <a href="#" class="team-icon"><i class="fa-solid fa-people-group fa-2x"></i><span>My Team</span></a>
+        </div>
+      </div>
+      <br><br><br><br>
+      <div class="container icon-container">
+        <h3 class="icon-heading">Pending My Approval</h3>
+        <div class="icon-bar">
+          <a class="active" href="#"><i class="fa-solid fa-file-circle-check fa-2x"></i><span>Leave</span></a>
+          <a href="#"><i class="fa-solid fa-user-check fa-2x"></i><span>Attendance Regularization</span></a>
+          <a href="#"><i class="fa-solid fa-business-time fa-2x"></i><span>Timesheet</span></a>
+        </div>
+      </div>
+    </div>
+    {% block content %}{% endblock content %}
+  </div>
+</body>
+
+</html>

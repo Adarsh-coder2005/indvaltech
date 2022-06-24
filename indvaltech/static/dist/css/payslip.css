@@ -1,89 +1,110 @@
-.salary-slip{
-      margin: 15px;
+.salary-slip {
+    margin: 15px;
+  }
+  .salary-slip .empDetail {
+    width: 100%;
+    text-align: left;
+    border: 2px solid black;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  .salary-slip .head {
+    margin: 10px;
+    margin-bottom: 50px;
+    width: 100%;
+  }
+  .salary-slip .companyName {
+    text-align: right;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .salary-slip .salaryMonth {
+    text-align: center;
+  }
+  .salary-slip .table-border-bottom {
+    border-bottom: 1px solid;
+  }
+  .salary-slip .table-border-right {
+    border-right: 1px solid;
+  }
+  .salary-slip .myBackground {
+    padding-top: 10px;
+    text-align: left;
+    border: 1px solid black;
+    height: 40px;
+  }
+  .salary-slip .myAlign {
+    text-align: center;
+    border-right: 1px solid black;
+  }
+  .salary-slip .myTotalBackground {
+    padding-top: 10px;
+    text-align: left;
+    background-color: #ebf1de;
+    border-spacing: 0px;
+  }
+  .salary-slip .align-4 {
+    width: 25%;
+    float: left;
+  }
+  .salary-slip .tail {
+    margin-top: 35px;
+  }
+  .salary-slip .align-2 {
+    margin-top: 25px;
+    width: 50%;
+    float: left;
+  }
+  .salary-slip .border-center {
+    text-align: center;
+  }
+  .salary-slip .border-center th,
+  .salary-slip .border-center td {
+    border: 1px solid black;
+  }
+  .salary-slip th,
+  .salary-slip td {
+    padding-left: 6px;
+  }
+  #logo1{
+      float: left;
+  }
+
+  #amt
+  {
+    width: 60%;
+  }
+
+  #save .btn{
+    
+    width: 150px;
+    margin-left: 50%;
+    align-items: center;
+
 }
-.table-header
-{
-  background: -webkit-gradient(linear, left bottom, right top, from(#08aeea), to(#b721ff));
-  background: -webkit-linear-gradient(bottom left, #08aeea 0%, #b721ff 100%);
-  background: -moz-linear-gradient(bottom left, #08aeea 0%, #b721ff 100%);
-  background: -o-linear-gradient(bottom left, #08aeea 0%, #b721ff 100%);
-  background: linear-gradient(to top right, #08aeea 0%, #b721ff 100%);
+
+.btn {
+  
+  padding:10px;
+  background-color: rgb(20, 124, 176);
+  font-size:17px;
+  border:none;
+  border-radius:5px;
+  color:#bcf5e7;
+  cursor:pointer;
+  margin-bottom: 5%;
+
 }
-      .empDetail
-       {
-        width: 100%;
-        text-align: left;
-        border: 2px solid black;
-        border-collapse: collapse;
-        table-layout: fixed;
-      }
-      
-      .head {
-        margin: 10px;
-        margin-bottom: 50px;
-        width: 100%;
-      }
-      
-      .companyName {
-        text-align: right;
-        font-size: 25px;
-        font-weight: bold;
-      }
-      
-      .salaryMonth {
-        text-align: center;
-      }
-      
-      .table-border-bottom {
-        border-bottom: 1px solid;
-      }
-      
-      .table-border-right {
-        margin-left: 10%;
-        text-align: center;
-      }
-      
-      .myBackground {
-        padding-top: 10px;
-        text-align: left;
-        border: 1px solid black;
-        height: 40px;
-      }
-      
-      .myAlign {
-        margin-right: 100;
-       
-      }
-      
-      .myTotalBackground {
-        padding-top: 10px;
-        text-align: left;
-        background-color: #EBF1DE;
-        border-spacing: 0px;
-      }
-      
-      .align-4 {
-        width: 25%;
-        float: left;
-      }
-      
-      .tail {
-        margin-top: 35px;
-      }
-      
-      .align-2 {
-        margin-top: 25px;
-        width: 50%;
-        float: left;
-      }
-      
-      .border-center {
-        text-align: center;
-      }
-      .border-center th, .border-center td {
-        border: 1px solid black;
-      }
-      
-      th, td {
-        padding-left: 6px;
-      }
+
+
+
+
+@media only screen and (max-width: 500px) {
+  .row{
+    flex-direction:column; 
+  }
+
+  .btn {
+      flex:1;
+  }
+}

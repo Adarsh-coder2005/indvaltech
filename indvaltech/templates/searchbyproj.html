@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        margin-top: 0 auto;
+    }
+
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 90%;
+        margin-top: 2%;
+        margin-left: 5%;
+        padding: 0%;
+        font-size: 20px;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+
+    }
+
+    tr:nth-child(odd) {
+        background-color: rgb(213, 213, 213);
+    }
+
+    #table-header {
+        background-color: black;
+        color: white;
+        font-size: 20px;
+    }
+
+
+    #heading {
+        background-color: rgb(20, 124, 176);
+        margin-top: 1%;
+        margin-left: 1%;
+
+        height: 100%;
+        padding: 1%;
+        text-align: center;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+
+    }
+
+    .container {
+        position: absolute;
+        width: 100%;
+    }
+
+    #search
+    {
+        position: absolute;
+         font-size: 20px;
+        margin-left: 40%;
+        margin-top: 1%;
+    }
+    #search-btn
+    {
+        font-size: 20px;
+        margin-top: 3%;
+        margin-left: 45%;
+    }
+
+ .category-search-btn
+ {
+    margin-top: 1%;
+    border: 1px;
+    width:70%;
+ }
+
+ #search-b1
+ {
+    margin-left: 10%;
+    font-size: 10px;
+    padding: 1%;
+    width:10%;
+ }
+ #search-b2
+ {
+    margin-left: 3%;
+    font-size: 10px;
+     padding: 1%;
+    width:20%;
+ }
+  #search-b3
+ {
+    margin-left: 3%;
+    font-size: 10px;
+     padding: 1%;
+    width:20%;
+    text-align: center;
+ }
+  #search-b4
+ {
+    margin-left: 5%;
+    font-size: 10px;
+     padding: 1%;
+    width:15%;
+ }
+
+</style>
+
+
+</head>
+<body>
+
+    <div class="container">
+
+
+    <div id="heading">
+        <h1>Search by category</h1>
+    </div>
+
+<!--
+    <input type="text" placeholder="Search.." name="search" id="search">
+    <br>
+    <button type="submit" id="search-btn">Search</button>
+    <div class="category-search-btn">
+        <h3>Search by - </h3>
+        <br>
+        <button type="submit" id="search-b1">ID</button>
+        <button type="submit" id="search-b2">NAME</button>
+        <button type="submit" id="search-b3">DEPARTMENT</button>
+        <button type="submit" id="search-b4">PHONE</button>
+    </div>
+-->
+<table>
+
+  <tr id="table-header">
+    <th>Employee ID</th>
+    <th>Name</th>
+    <th>Department</th>
+    <th>Details</th>
+  </tr>
+  {% for data in data %}
+  <tr>
+    <td>{{ data.EID_id }}</td>
+    <td>{{ data.EID }}</td>
+    <td>{{ data.Department }}</td>
+    <th><a href="{% url 'elists' data.EID %}">Details</a></th>
+  </tr>
+  {% endfor %}
+
+
+</table>
+</div>
+</body>
+</html>

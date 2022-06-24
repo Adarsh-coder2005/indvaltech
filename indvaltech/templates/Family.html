@@ -7,7 +7,7 @@
 {% block content %}
 
 <section id="empdeets">
-    <form class="signup-form" method="post" action="{% url 'family' name %}" enctype="multipart/form-data">
+    <form class="signup-form" id="family" method="post" action="{% url 'family' name %}" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-header">
             <h1>Family Details</h1>
@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="input-group">
                     <label>Name</label>
-                    <input type="text" name="fmember_name" id="name">
+                    <input type="text" name="fmember_name" id="fname">
                 </div>
             </div>
             <div class="row">
@@ -36,7 +36,7 @@
                     <label>Occupation</label>
                     <input type="text" name="occupation" id="occ">
                 </div>
-            </div>  
+            </div>
             <div class="row">
                 <div class="input-group">
                     <label>Contact</label>
@@ -50,66 +50,95 @@
                 </div>
             </div>
             <button class="btn" type="submit">Add</button>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Age</th>
-                        <th>Relation</th>
-                        <th>Occupation</th>
-                        <th>Contact</th>
-                        <th>Remark</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-        
-                </tbody>
-            </table>
-        </div>
-        <div class="form-footer">
-            <div id="save"><button  class="btn"  type=" button">Save as Draft</button></div>
-            <div id="next"><a href="{% url 'bank' name %}"><button class="btn" type="button">Next</button></a></div>               
-        </div>
     </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Relation</th>
+                <th>Occupation</th>
+                <th>Contact</th>
+                <th>Remark</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            {% if datas %}
+            {% for data in datas %}
+            <tr>
+                <td>{{data.name}}</td>
+                <td>{{data.age}}</td>
+                <td>{{data.relation}}</td>
+                <td>{{data.occupation}}</td>
+                <td>{{data.contact}}</td>
+                <td>{{data.remarks}}</td>
+                <td>
+                    <form action="{% url 'delete_fam' name data.relation %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <input type="submit" class="btn" value="Delete">
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+    <div class="form-footer">
+        <div id="save"><button id="save" class="btn" type=" button">Save as Draft</button></div>
+        <div id="next"><a href="{% url 'bank' name %}"><button class="btn" type="button">Next</button></a></div>
+    </div>
 </section>
 
 <script>
-const formEl = document.querySelector("form");
-const tbodyEl = document.querySelector("tbody");
-const tableEl = document.querySelector("table");
-function onAddWebsite(e) {
-  e.preventDefault();
-  const naam = document.getElementById("name").value;
-  const umar = document.getElementById("age").value;
-  const rishta = document.getElementById("rel").value;
-  const kaam = document.getElementById("occ").value;
-  const number = document.getElementById("con").value;
-  const rema = document.getElementById("rem").value;
-  tbodyEl.innerHTML += `
-      <tr>
-          <td>${naam}</td>
-          <td>${umar}</td>
-          <td>${rishta}</td>
-          <td>${kaam}</td>
-          <td>${number}</td>
-          <td>${rema}</td>
-          <td><button class="deleteBtn">Delete</button></td>
-      </tr>
-  `;
-}
+    const formId = "family"; // ID of the form
+    const url = location.href; //  href for the page
+    const formIdentifier = `${url} ${formId}`; // Identifier used to identify the form
+    const saveButton = document.querySelector("#save"); // select save button
+    //const alertBox = document.querySelector(".form-header"); // select alert display div
+    let form = document.querySelector(`#${formId}`); // select form
+    let formElements = form.elements; // get the elements in the form
 
-function onDeleteRow(e) {
-  if (!e.target.classList.contains("deleteBtn")) {
-    return;
-  }
+    const getFormData = () => {
+        let data = { [formIdentifier]: {} };
+        for (const element of formElements) {
+            if (element.name.length > 0) {
+                data[formIdentifier][element.name] = element.value;
+            }
+        }
+        return data;
+    };
 
-  const btn = e.target;
-  btn.closest("tr").remove();
-}
+    saveButton.onclick = event => {
+        event.preventDefault();
+        data = getFormData();
+        localStorage.setItem(formIdentifier, JSON.stringify(data[formIdentifier]));
+       // const message = "Form draft has been saved!";
+        //displayAlert(message);
+    };
 
-formEl.addEventListener("submit", onAddWebsite);
-tableEl.addEventListener("click", onDeleteRow);
+    /*const displayAlert = message => {
+        alertBox.innerText = message;
+        alertBox.style.display = "block";
+        setTimeout(function () {
+            alertBox.style.display = "none";
+        }, 1000);
+    };*/
+
+    const populateForm = () => {
+        if (localStorage.key(formIdentifier)) {
+            const savedData = JSON.parse(localStorage.getItem(formIdentifier)); // get and parse the saved data from localStorage
+            for (const element of formElements) {
+                if (element.name in savedData) {
+                    element.value = savedData[element.name];
+                }
+            }
+            const message = "Form has been refilled with saved data!";
+            displayAlert(message);
+        }
+    };
+
+    document.onload = populateForm(); // populate the form when the document is loaded
 </script>
 
 {% endblock %}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <link rel="stylesheet" href="fileup.css">
+</head>
+
+<body>
+    <section id="empdeets">
+        <form class="signup-form">
+            <div class="form-header">
+                <h1>File Upload</h1>
+            </div>
+            <div class="form-body">
+               
+                <div class="row">
+                    <div class="input-group">
+                        <label>Employee Education</label>
+                        <input type="file" name="designation">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label>Employee History</label>
+                        <input type="file" name="work">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label>Time Sheets</label>
+                        <input type="file" name="last_salary">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label for="">Family History</label>
+                        <input type="file" name="work">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="input-group">
+                        <label for="">Leave Applications</label>
+                        <input type="file" name="work">
+                    </div>
+                </div>
+                
+
+            </div>
+            <div class="form-footer">
+
+                <div id="next"><button class="btn">Submit</button></div>
+
+            </div>
+        </form>
+    </section>
+
+    <script>
+        const changeSliderValue = (value) => {
+            document.getElementById("rangeSliderLabel").innerText = value + " K";
+        }
+    </script>
+
+</body>
+
+</html>

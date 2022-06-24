@@ -36,7 +36,7 @@ class HRD_table(models.Model):
 class Employee(models.Model):
    alphanumeric = RegexValidator(r'^[0-9a-zA-Z]*$', 'Only alphanumeric characters are allowed.')
    Name = models.ForeignKey(HRD_table,on_delete=models.CASCADE)
-   Email=models.CharField(max_length=50,validators=[alphanumeric])
+   Email=models.CharField(max_length=50)
    aadhar=models.IntegerField()
    aadharDoc=models.FileField(upload_to='media/')
    Pan = models.CharField(max_length=10,validators=[alphanumeric])
@@ -126,8 +126,8 @@ class Bank(models.Model):
       db_table = "Bank"
 
    def __str__(self):
-      return self.name  
-   
+      return self.name
+
 #Certification Table
 class Certification(models.Model):
    EID = models.ForeignKey(HRD_table, on_delete=models.CASCADE)
@@ -223,6 +223,18 @@ class Attendance(models.Model):
    def __str__(self):
       return self.EID.Name
 
-class testtable(models.Model):
-   d1= models.IntegerField(primary_key=True)
-   d2= models.IntegerField()
+
+
+#leave table
+class Leave(models.Model):
+   EID = models.ForeignKey(HRD_table, on_delete=models.CASCADE)
+   FromDate = models.DateField()
+   ToDate = models.DateField()
+   Reason=models.CharField(max_length=400)
+   approvel=models.BooleanField(default=False)
+
+   class Meta:
+      db_table = "Leave"
+
+   def __str__(self):
+      return self.EID

@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 #empdeets {
-    position: relative;
-    height:100%;
-    background:#ffffff; 
-    display:flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  margin-top: 100px;
+  height:100%;
+  background:#ffffff;
 }
 
 .signup-form  {
@@ -19,7 +22,7 @@
     margin-bottom:  auto;
     box-shadow: 0 0 10px rgb(0, 0, 0);
   }
-  
+
 .form-header {
     padding:15px 0;
     border-bottom:1px solid #cccccc;
@@ -37,24 +40,24 @@
 }
 
 .row {
-    display:flex; 
-}
-  
-.input-group {
-    flex:1;  
     display:flex;
-    flex-direction:column; 
+}
+
+.input-group {
+    flex:1;
+    display:flex;
+    flex-direction:column;
     margin:10px 5px;
 }
 
 .radio-group, .checkbox-group {
     display:flex;
   }
-  
+
   .radio-group div, .checkbox-group div {
     flex:1;
   }
-  
+
   .radio-group label, .checkbox-group label  {
     color:#666;
     cursor:pointer;
@@ -80,7 +83,7 @@
 
 @media only screen and (max-width: 500px) {
     .row{
-      flex-direction:column; 
+      flex-direction:column;
     }
 
     .btn {
@@ -105,7 +108,7 @@
 }
 
 #save .btn{
-    margin-right: 353px;
+    margin-right: 340px;
     width: 150px;
 }
 
@@ -150,7 +153,7 @@ table {
   margin-top: 10px;
   margin-left: 30px;
   position: reative;
- 
+
   text-align: center;
   font-family: Arial;
   font-size: 16px;
@@ -162,11 +165,11 @@ table {
 table td{
   padding: 8px;
   border: 1px solid rgb(221, 221, 221);
-  
+
 }
 table th {
   color: white;
   border: 1px solid #ddd;
   background-color: rgb(20, 124, 176);
-  
+
 }
