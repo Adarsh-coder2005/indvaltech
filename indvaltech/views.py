@@ -308,7 +308,7 @@ class setpPasswordView(SuccessMessageMixin, PasswordResetConfirmView):
     success_url = reverse_lazy('login')
 
 
-def search(request, name):
+'''def search(request, name):
     if request.method == 'POST':
         if request.POST.get('ename'):
             enames = request.POST['ename']
@@ -341,7 +341,7 @@ def search(request, name):
             Employeehistory = History.objects.filter(Q(EID=eid))
 
             return render(request, 'EmployeeDetails.html', {'data1': personaldetails, 'data2': educationdetails, 'data3': certificates, 'data4': bankdetials, 'data5': familydetails, 'data6':workingprojects, 'data7': Employeehistory, 'data8': HRDDetails })
-    return render(request, 'search.html', {'name': name})
+    return render(request, 'search.html', {'name': name})'''
 
 
 def icons(request, name):
